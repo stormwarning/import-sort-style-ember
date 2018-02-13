@@ -1,0 +1,86 @@
+{
+  "name": "import-sort-style-ember",
+  "version": "0.0.0",
+  "description": "An outside-in import-sort style",
+  "homepage": "https://github.com/stormwarning/import-sort-style-ember",
+  "author": "Jeff <rustyangel@gmail.com> (https://tidaltheory.co)",
+  "dependencies": {
+    "import-sort-style": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8",
+    "babel-eslint": "~7.2.3",
+    "eslint": "~4.6.1",
+    "eslint-config-standard": "~10.2.1",
+    "eslint-plugin-import": "~2.7.0",
+    "eslint-plugin-node": "~5.1.1",
+    "eslint-plugin-promise": "~3.5.0",
+    "eslint-plugin-standard": "~3.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "~4.3.0",
+    "microbundle": "^0.4.3",
+    "npm-run-all": "~4.1.2",
+    "prettier-eslint-cli": "~4.4.0",
+    "remark-cli": "~4.0.0",
+    "remark-contributors": "~3.1.0",
+    "remark-github": "~7.0.2",
+    "remark-preset-lint-markdown-style-guide": "~2.1.1",
+    "remark-toc": "~4.0.1",
+    "ts-node": "^3.0.6",
+    "typescript": "^2.7.1"
+  },
+  "keywords": [
+    "ember",
+    "import-sort-style"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js|json}": [
+      "prettier-eslint --list-different",
+      "git add"
+    ],
+    "*.md": [
+      "remark . -qo",
+      "git add"
+    ]
+  },
+  "main": "dist/index.js",
+  "publishConfig": {
+    "message": "🔖 %s"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "preset-lint-markdown-style-guide",
+      [
+        "lint-maximum-line-length",
+        false
+      ],
+      [
+        "lint-list-item-spacing",
+        false
+      ],
+      "contributors",
+      "github",
+      "toc"
+    ],
+    "settings": {
+      "commonmark": true,
+      "bullet": "-",
+      "listItemIndent": 1,
+      "rule": "-",
+      "ruleSpaces": false,
+      "strong": "*",
+      "emphasis": "*"
+    }
+  },
+  "repository": "stormwarning/import-sort-style-ember",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "lint": "npm-run-all lint:*",
+    "lint:scripts": "prettier-eslint '**/*.js' --write --list-different",
+    "lint:markdown": "remark . -qo",
+    "precommit": "lint-staged && npm test",
+    "test": "npm run lint"
+  }
+}
