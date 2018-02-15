@@ -38,9 +38,6 @@
     ]
   },
   "main": "dist/index.js",
-  "publishConfig": {
-    "message": "🔖 %s"
-  },
   "remarkConfig": {
     "plugins": [
       "preset-lint-markdown-style-guide",
