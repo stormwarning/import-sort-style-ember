@@ -1,6 +1,6 @@
 {
   "name": "import-sort-style-ember",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Group and sort imports by module, specifically `@ember`-scoped modules",
   "homepage": "https://github.com/stormwarning/import-sort-style-ember",
   "author": "Jeff <rustyangel@gmail.com> (https://tidaltheory.co)",
